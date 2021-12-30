@@ -1,16 +1,17 @@
 html, body {
   /* overflow-y:hidden; */
   height:100%;
-  background-color: #FFFFFF;
+  background-color: #F0F0FF;
 }
 
 /* Scale canvas with resize attribute to full size */
 canvas[resize] {
   border: 2px solid black;
     width: 70%;
-    height: 50%;
+    height: 70%;
     margin-left: 15%;
-    margin-top: 100px;
+    margin-top: 70px;
+    background-color: #FFFFFF;
 }
 
 #footer {
