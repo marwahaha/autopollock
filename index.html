@@ -14,6 +14,37 @@
 
 <body>
     <canvas id="myCanvas" resize></canvas>
+    <div id='footer'>
+        <div>
+            <button style="display:none" id="startbutton" onclick="toggleButton();window.simulateRandomGesturesPeriodically()">Start
+                automatic drawing</button>
+            <button id="stopbutton" onclick="toggleButton();window.stopSimulatingGestures()">Stop automatic drawing</button>
+            <button id='savebutton' onclick="saveCanvas()">Save image</button>
+            <button id='clearbutton' onclick="clearCanvas()">Clear</button>
+        </div>
+    </div>
+    <script>
+        function toggleButton() {
+            if (!document.getElementById("startbutton").style.display) {
+                document.getElementById("startbutton").style.display = 'none';
+            } else {
+                document.getElementById("startbutton").style.display = ''
+            }
+
+            if (!document.getElementById("stopbutton").style.display) {
+                document.getElementById("stopbutton").style.display = 'none';
+            } else {
+                document.getElementById("stopbutton").style.display = ''
+            }
+        }
+
+        function saveCanvas() {
+            var image = document.querySelector('canvas').toDataURL("image/png").replace("image/png", "image/octet-stream");
+            // here is the most important part because if you dont replace you will get a DOM 18 exception.
+            window.location.href = image; // it will save locally
+
+        }
+    </script>
     <script type="text/javascript" src="js/cursor.js"></script>
 </body>
 

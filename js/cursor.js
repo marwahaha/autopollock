@@ -82,3 +82,18 @@ window.stopSimulatingGestures = function () {
 };
 
 window.simulateRandomGesturesPeriodically();
+
+window.clearCanvas = function() {
+
+    var target = document.querySelector('canvas');
+    var event = new MouseEvent('mousedown', {
+        'view': window,
+        'bubbles': true,
+        'cancelable': false,
+        // you can pass any other needed properties here
+        'clearCanvas': true,
+        'clientX': 0,
+        'clientY': 0
+    });
+    target.dispatchEvent(event);
+}

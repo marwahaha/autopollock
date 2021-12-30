@@ -173,30 +173,17 @@ function splat(x1,y1,x2,y2,x3,y3,d,delta)
    }
 }
 
-
-
 function keyIsDown(key){
 	return false;
 }
 
 tool.onMouseDown = function(event) {
-
   currentcolor =  new Color(Math.random(255), Math.random(255), Math.random(255),255);
-
-    var now = new Date().getTime();
-    var timesince = now - lasttap;
-     if((timesince < 300) && (timesince > 0)){
-      project.clear();
-     }else{
 
       stopdraw = false;
       end_x = event.point.x;
       end_y = event.point.y;
-    }
     lasttap = new Date().getTime();
-
-
-
     return false;
 
 }
