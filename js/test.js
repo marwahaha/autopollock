@@ -1,3 +1,4 @@
+// https://stackoverflow.com/questions/9749910/programmatically-triggering-mouse-move-event-in-javascript
 var gestureTimeoutID;
 var periodicGesturesTimeoutID;
 
@@ -19,15 +20,6 @@ window.simulateRandomGesture = function (doneCallback) {
     };
 
     var t = 0;
-
-    /* Simple circle:
-    var getPointAtTime = (t) => {
-        return {
-            x: 300 + Math.sin(t / 50) * 150,
-            y: 300 + Math.cos(t / 50) * 150,
-        };
-    };
-    */
 
     // More fun:
     var cx = Math.random() * rect.width;
@@ -56,7 +48,7 @@ window.simulateRandomGesture = function (doneCallback) {
     simulateMouseEvent('mousedown', getPointAtTime(t));
     var move = function move() {
         t += 1;
-        if (t > 50) {
+        if (t > 5) {
             simulateMouseEvent('mouseup', getPointAtTime(t));
             if (doneCallback) {
                 doneCallback();
@@ -70,7 +62,7 @@ window.simulateRandomGesture = function (doneCallback) {
 };
 
 window.simulateRandomGesturesPeriodically = function (delayBetweenGestures) {
-    delayBetweenGestures = delayBetweenGestures !== undefined ? delayBetweenGestures : 50;
+    delayBetweenGestures = delayBetweenGestures !== undefined ? delayBetweenGestures : 500;
 
     var waitThenGo = function waitThenGo() {
         periodicGesturesTimeoutID = setTimeout(function () {
