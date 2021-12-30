@@ -48,7 +48,7 @@ tool.minDistance = 1;
 
 rect = new Path.Rectangle({
     point: [0, 0],
-    size: [view.size.width , view.size.height],
+    size: [view.size.width  - 1000, view.size.height - 1000],
     selected: false
 });
 rect.sendToBack();
@@ -62,7 +62,7 @@ view.onResize = function(event) {
             console.log(event.size);
             rect = new Path.Rectangle({
               point: [0, 0],
-              size: [event.size.width , event.size.height],
+              size: [event.size.width - 1000, event.size.height - 1000],
               selected: false
             });
             rect.sendToBack();
